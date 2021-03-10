@@ -1,6 +1,6 @@
 import './App.css';
 import BannerImage from './component/BannerImage';
-import PhotoEntry from './component/PhotoEntry'
+import AlbumMaker from './component/AlbumMaker'
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <div>
          <h1>Welcome My Website</h1>
          <h3>Husniye Sekeroglu</h3>
-         <PhotoEntry/>
+         <AlbumMaker/>
         </div>
       </header>
     </div>

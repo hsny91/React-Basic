@@ -5,19 +5,19 @@ class PhotoEntry extends React.Component {
 
   render() {
 
-    // console.log("this.props.caption = " + this.props.caption);
-    // console.log("this.props.location = " + this.props.location);
-    // console.log("this.props.src = " + this.props.src);
-    // console.log("-------------------------------");
-    //
-    // const image_path = "../images/" + this.props.src;
+    console.log("this.props.caption = " + this.props.caption);
+    console.log("this.props.location = " + this.props.location);
+    console.log("this.props.src = " + this.props.src);
+    console.log("-------------------------------");
+    
+    const image_path = "../images/" + this.props.src;
 
     return <div className="photo-entry-block" >
               <a href="../images/berlin.jpg">
-                 <img className="photo-img" src="../images/berlin.jpg" alt="../images/berlin.jpg" />
+                 <img className="photo-img" src={image_path} alt={image_path} />
               </a>
-              <h5>The Heart of Europe</h5>
-              <h6>Berlin, Germany</h6>
+              <h5>{this.props.location}</h5>
+              <h6>{this.props.caption}</h6>
            </div>
   }
 
