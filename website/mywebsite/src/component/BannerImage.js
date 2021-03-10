@@ -1,9 +1,10 @@
 import React from 'react'
+import './master.css'
 
 export default function BannerImage() {
     return (
         <div>
-          <img src="../images/1.jpg" alt="banner"/> 
+          <img className="banner" src="../images/banner.jpg" alt="banner"/> 
         </div>
     )
 }
