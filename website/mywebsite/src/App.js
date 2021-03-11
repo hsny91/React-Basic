@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <BannerImage/>
         <div>
-         <h1>Welcome My Website</h1>
+         <h1>Welcome </h1>
          <h3>Husniye Sekeroglu</h3>
          <AlbumMaker/>
         </div>
