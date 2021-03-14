@@ -1,5 +1,4 @@
 
-brightness_4
 // Requiring the module 
 const reader = require('xlsx') 
   
@@ -8,7 +7,7 @@ const file = reader.readFile('./ornekDosya.xlsx')
   
 let data = [] 
   
-const sheets = file.SheetNames 
+const sheets = file.info 
   
 for(let i = 0; i < sheets.length; i++) 
 { 
