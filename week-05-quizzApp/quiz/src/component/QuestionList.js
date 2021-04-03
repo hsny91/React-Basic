@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Question from './Question';
 
-const QuestionList = ({ quizData}) => {
+const QuestionList = ({ quizData, handleAnswerClick}) => {
   return (
     <ul className="question-list">
       {quizData.map(question => {
@@ -11,6 +11,7 @@ const QuestionList = ({ quizData}) => {
             key={question.question.props.children.toString()}
             question={question.question}
             answers={question.answers}
+            handleAnswerClick={handleAnswerClick}
           />
         );
       })}
