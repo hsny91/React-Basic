@@ -46,7 +46,7 @@ export default function QuizApp() {
                  step={data.step}
                  totalQuestions={data.totalQuestions}
                  score={data.score}
-                 handleAnswerClick={handleAnswerClick}
+                
             />
         </div>
     )
