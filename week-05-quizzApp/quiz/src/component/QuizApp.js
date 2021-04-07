@@ -7,14 +7,12 @@ import shuffleQuestions from '../utility/shuffleQuestions'
  * QuizApp componenti <Quiz/> ve <Result> componentlerinin atasidir.
  * @returns 
  */
-export default function QuizApp() {
+export default function QuizApp({questionNumber}) {
    const [data, setData] = useState({
         quizData: shuffleQuestions(QUIZ_DATA),
         step: 1,
         score: 0,
-        totalQuestions:10,
    });
-
    const handleAnswerClick = (index) => (e) => {
         const { quizData, score } = data;
         const isCorrect = quizData[0].correct === index; 
@@ -44,7 +42,7 @@ export default function QuizApp() {
         <div>
            <Quiz quizData={data.quizData} 
                  step={data.step}
-                 totalQuestions={data.totalQuestions}
+                 totalQuestions={questionNumber}
                  score={data.score}
                  handleAnswerClick={handleAnswerClick}
             />
