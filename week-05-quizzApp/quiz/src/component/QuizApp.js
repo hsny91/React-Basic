@@ -38,11 +38,24 @@ export default function QuizApp({questionNumber}) {
             score: score + 10,
           });
       };
-       if (data.step={questionNumber} ) {
+       if (data.step>questionNumber ) {
         return (
           <Result/>
         );
-      }}
+       }
+        else {
+          return(  <div>
+           <Quiz quizData={data.quizData} 
+                 step={data.step}
+                 totalQuestions={questionNumber}
+                 score={data.score}
+                 handleAnswerClick={handleAnswerClick}
+            />
+      
+        </div>
+          )
+        }
+      }
     
 
 
