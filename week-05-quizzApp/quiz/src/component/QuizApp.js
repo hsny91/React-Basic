@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import QUIZ_DATA from '../data/quiz-data'
 import Quiz from './Quiz'
+import Result from './Result'
 import shuffleQuestions from '../utility/shuffleQuestions'
 
 /**
@@ -37,8 +38,17 @@ export default function QuizApp({questionNumber}) {
             score: score + 10,
           });
       };
-   
-    return (
+       if (data.step={questionNumber} ) {
+        return (
+          <Result/>
+        );
+      }}
+    
+
+
+/**
+ * return (
+    
         <div>
            <Quiz quizData={data.quizData} 
                  step={data.step}
@@ -46,6 +56,7 @@ export default function QuizApp({questionNumber}) {
                  score={data.score}
                  handleAnswerClick={handleAnswerClick}
             />
+      
         </div>
     )
-}
+ */
