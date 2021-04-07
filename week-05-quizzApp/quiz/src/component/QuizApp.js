@@ -14,6 +14,13 @@ export default function QuizApp({questionNumber}) {
         step: 1,
         score: 0,
    });
+
+/**
+ * Tiklanan sikkin dogru ve yanlis olmasi durumunu kontrol eder.
+ * Herhangi bir sikkin tiklanmasi durumunda next() fonksiyonunu cagirarak diger soruya gecer.
+ * @param {*} index 
+ * @returns 
+ */
    const handleAnswerClick = (index) => (e) => {
         const { quizData, score } = data;
         const isCorrect = quizData[0].correct === index; 
@@ -28,7 +35,9 @@ export default function QuizApp({questionNumber}) {
         }
         setTimeout(nextStep,750);
       };
-
+/**
+ * 
+ */
      const nextStep = () => {
         const {quizData, step, score} = data;
         const restOfQuestions = quizData.slice(1);
@@ -38,38 +47,34 @@ export default function QuizApp({questionNumber}) {
             score: score + 10,
           });
       };
-       if (data.step>questionNumber ) {
+      const restartQuiz = () => {
+        setData({
+          quizData: shuffleQuestions(QUIZ_DATA),
+          step: 1,
+          score: 0,
+        });
+      };
+
+       if (data.step > questionNumber) {
         return (
-          <Result/>
+          <Result
+          score={data.score}
+          restartQuiz={restartQuiz}
+         
+        />
         );
        }
         else {
-          return(  <div>
+          return(  
+          <div>
            <Quiz quizData={data.quizData} 
                  step={data.step}
                  totalQuestions={questionNumber}
                  score={data.score}
                  handleAnswerClick={handleAnswerClick}
             />
-      
         </div>
           )
         }
       }
     
-
-
-/**
- * return (
-    
-        <div>
-           <Quiz quizData={data.quizData} 
-                 step={data.step}
-                 totalQuestions={questionNumber}
-                 score={data.score}
-                 handleAnswerClick={handleAnswerClick}
-            />
-      
-        </div>
-    )
- */
