@@ -28,6 +28,14 @@ h1 {
 h2 {
   font-size: 1.25em;
   margin: 0 0 15px;
+ 
+}
+.question-title{
+  background-color: olive;
+  height: 5rem;
+  display: flex;
+  justify-content:center ;
+  padding-top: 1rem;
 }
 
 header {
@@ -38,8 +46,10 @@ header {
 }
 
 ul {
-  padding: 0;  
+  padding: 0; 
+  display: flex; 
 }
+
 
 p {
   margin: 0;
@@ -47,6 +57,7 @@ p {
 
 span {
   pointer-events: none;
+  margin-left: 2rem;
 }
 
 code {
@@ -81,8 +92,10 @@ code {
 
 .questions {
   width: 85%;
-  margin: 35px auto 0;
+  margin-top:35px ; 
+  margin-left:23rem
 }
+
 
 .question {
   font-size: 2em;
@@ -94,7 +107,7 @@ code {
 }
 
 .question-answer {
-  list-style-type: lower-alpha;
+  list-style-type: none;
   cursor: pointer;
   padding: .3em;
   margin-bottom: .3em;
@@ -103,6 +116,7 @@ code {
 
 .question-answer span {
   line-height: 1.3;
+  
 }
 
 .answer {
@@ -117,6 +131,8 @@ code {
 .question {
   display: none;
   animation: slide-in .4s ease;
+  text-align: center;
+ 
 }
 
 .question:first-child {
@@ -221,28 +237,7 @@ code {
   -webkit-font-smoothing: antialiased;
 }
 
-/* @keyframes modal-enter {
-  0 {
-    visibility: visible;
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  85% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  99% {
-    opacity: .5;
-    transform: scale(1);
-  }
-  100% {
-    display: none;
-    transform: scale(1);
-  }
-} */
+
 
 @media (min-width: 600px) {
   body {

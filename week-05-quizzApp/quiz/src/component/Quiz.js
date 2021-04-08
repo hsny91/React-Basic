@@ -1,5 +1,5 @@
 import React from 'react';
-import QuestionList from './QuestionList';
+import Question from './Question';
 
 const Quiz = ({ step, quizData, totalQuestions, score, handleAnswerClick }) => {
   return (
@@ -17,12 +17,19 @@ const Quiz = ({ step, quizData, totalQuestions, score, handleAnswerClick }) => {
           <div className="description">points</div>
         </div>
       </header>
-
       <div className="questions">
-        <QuestionList
-          quizData={quizData}
-          handleAnswerClick={handleAnswerClick}
-        />
+      <ul className="question-list">
+      {quizData.map(question => {
+        return (
+          <Question
+            key={question.question.props.children.toString()}
+            question={question.question}// sorularin hepsi Question componentine gonderilir ancak css ile sadece ilk soru ekranda gorunur.
+            answers={question.answers}
+            handleAnswerClick={handleAnswerClick}
+          />
+        );
+      })}
+    </ul>
       </div>
     </div>
   );

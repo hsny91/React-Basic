@@ -15,6 +15,7 @@ export default function QuizApp({questionNumber}) {
     step: 1,
     score: 0,
   }
+
    const [data, setData] = useState(initialState);
 
 /**
@@ -25,28 +26,25 @@ export default function QuizApp({questionNumber}) {
  */
    const handleAnswerClick = (index) => (e) => {
         const { quizData} = data;
-        const isCorrect = quizData[0].correct === index; 
+        const isCorrect = quizData[0].correct === index; // sorunun dogru olup olmadigini kontrol eder.
 
         if (isCorrect && e.target.nodeName === 'LI') {
-          e.target.parentNode.style.pointerEvents = 'none';
           e.target.classList.add('right');
-          
-          setTimeout(function(){nextStep(10)},750);      
+          setTimeout(function(){nextStep(10)},750);   // dogru soru icin +10 puan   
         }
+
         else if (e.target.nodeName === 'LI') {
-          e.target.style.pointerEvents = 'none';
           e.target.classList.add('wrong');
-          setTimeout(function(){nextStep(-5)},750);
+          setTimeout(function(){nextStep(-5)},750);// yanlis soru icin -5 puan
         }
-     
-  
       };
 /**
- * 
+ * Bir sonraki soruyu getiren fonksiyon
+ * @param {*} pScore 
  */
      const nextStep = (pScore) => {
         const {quizData, step, score} = data;
-        const restOfQuestions = quizData.slice(1);
+        const restOfQuestions = quizData.slice(1);// cevaplanan soru quizDatadan cikarilir.
         setData({
             step: step + 1,
             quizData: restOfQuestions,
@@ -63,10 +61,9 @@ export default function QuizApp({questionNumber}) {
 
        if (data.step > questionNumber) {
         return (
-          <Result
+          <Result //quiz bitiminde ekrana gelen component
           score={data.score}
           restartQuiz={restartQuiz}
-         
         />
         );
        }

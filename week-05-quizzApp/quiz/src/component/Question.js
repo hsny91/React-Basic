@@ -1,7 +1,7 @@
 import React from 'react'
 import Answer from './Answer'
 
-const Question = ({ question, answers, handleAnswerClick, handleEnterPress }) => {
+const Question = ({ question, answers, handleAnswerClick}) => {
   return (
     <li className="question">
       <h2 className="question-title" tabIndex="0">
@@ -13,7 +13,7 @@ const Question = ({ question, answers, handleAnswerClick, handleEnterPress }) =>
             <Answer
               key={JSON.stringify(answer.props.children)}
               answer={answer}
-              handleAnswerClick={handleAnswerClick(index)}
+              handleAnswerClick={handleAnswerClick(index)}// tiklanan elemanin indexi 
             />
           );
         })}
