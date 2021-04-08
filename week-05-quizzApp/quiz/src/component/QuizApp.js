@@ -24,29 +24,33 @@ export default function QuizApp({questionNumber}) {
  * @returns 
  */
    const handleAnswerClick = (index) => (e) => {
-        const { quizData, score } = data;
+        const { quizData} = data;
         const isCorrect = quizData[0].correct === index; 
 
         if (isCorrect && e.target.nodeName === 'LI') {
           e.target.parentNode.style.pointerEvents = 'none';
-          e.target.classList.add('right');        
+          e.target.classList.add('right');
+          
+          setTimeout(function(){nextStep(10)},750);      
         }
         else if (e.target.nodeName === 'LI') {
           e.target.style.pointerEvents = 'none';
           e.target.classList.add('wrong');
+          setTimeout(function(){nextStep(-5)},750);
         }
-        setTimeout(nextStep,750);
+     
+  
       };
 /**
  * 
  */
-     const nextStep = () => {
+     const nextStep = (pScore) => {
         const {quizData, step, score} = data;
         const restOfQuestions = quizData.slice(1);
         setData({
             step: step + 1,
             quizData: restOfQuestions,
-            score: score + 10,
+            score: score+pScore
           });
       };
 
@@ -69,7 +73,7 @@ export default function QuizApp({questionNumber}) {
         else {
           return(  
           <div>
-           <Quiz quizData={data.quizData} 
+           <Quiz quizData={data.quizData} // karistirilan butun sorular quiz komponentine gonderilir.
                  step={data.step}
                  totalQuestions={questionNumber}
                  score={data.score}
