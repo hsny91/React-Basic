@@ -9,11 +9,13 @@ import shuffleQuestions from '../utility/shuffleQuestions'
  * @returns 
  */
 export default function QuizApp({questionNumber}) {
-   const [data, setData] = useState({
-        quizData: shuffleQuestions(QUIZ_DATA),
-        step: 1,
-        score: 0,
-   });
+  // baslangic state
+  const initialState={
+    quizData: shuffleQuestions(QUIZ_DATA),
+    step: 1,
+    score: 0,
+  }
+   const [data, setData] = useState(initialState);
 
 /**
  * Tiklanan sikkin dogru ve yanlis olmasi durumunu kontrol eder.
@@ -47,12 +49,12 @@ export default function QuizApp({questionNumber}) {
             score: score + 10,
           });
       };
+
+      /**
+       * Quizi tekrardan baslatir.
+       */
       const restartQuiz = () => {
-        setData({
-          quizData: shuffleQuestions(QUIZ_DATA),
-          step: 1,
-          score: 0,
-        });
+        setData(initialState);
       };
 
        if (data.step > questionNumber) {
