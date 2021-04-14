@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 
 export default function Children(props) {
   return <Row>
-  <h4 className="header">CHILDREN</h4>
+  <button className="header">CHILDREN</button>
 
     {props.childrenInfo && props.childrenInfo.map(child=> {
       return   <Col >
@@ -19,20 +19,16 @@ export default function Children(props) {
 }
 
 
-
-test('list contains 5 animals', () => {
+test('test children', () => {
   render(<Children />);
 
-  const headElement = screen.getByRole('heading');
+  const headElement = screen.getByRole('button');
 
-  expect(headElement).toBeInTheDocument();
-  expect(headElement).toHaveClass('header');
-});
+  expect(headElement).toBeInTheDocument();//3
 
-test('render h1 element', () => {
-  render(<Children />);
-
+  expect(headElement).toHaveClass('header');//2
   screen.debug();
 
-  expect(screen.getByText('CHILDREN')).toBeInTheDocument();
+  expect(screen.getByText('CHILDREN')).toBeInTheDocument();//1
 });
+
