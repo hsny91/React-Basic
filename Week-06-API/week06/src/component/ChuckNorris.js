@@ -6,7 +6,9 @@ export default function ChuckNorris() {
 
     const [word, setWord] = useState([]);
 
-  
+    useEffect(()=>{
+        loadRandomWords()
+      },[]);
 
     const loadRandomWords = async () =>{
         const response = await fetch(API_RANDOM_URL);
